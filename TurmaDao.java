@@ -10,7 +10,7 @@ public class TurmaDao {
     public void save(Aluno a){
         listaDao.add(a);
     }
-    // devo atualizar um aluno ou a lista inteira?
+   
     public void update(String matricula, Aluno alunoAtualizado){
         for(int i = 0; i<listaDao.size(); i++){
             Aluno aluno = listaDao.get(i);
@@ -19,7 +19,7 @@ public class TurmaDao {
             }
         }
     }
-    // deleto um aluno ou a lista inteira?
+   
     public void delete(Aluno a){
         listaDao.remove(a);
     }
