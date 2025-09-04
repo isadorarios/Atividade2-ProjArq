@@ -1,13 +1,13 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         Turma t = new Turma();
-        Aluno leo =  new Aluno("leonardo", "121221", 10.0);
-        Aluno and =  new Aluno("anderson", "131231", 8.5);
+        Aluno isadora =  new Aluno("isadora", "2417195", 10.0);
+        Aluno lara =  new Aluno("lara", "2410530", 8.0);
+        Aluno cauan =  new Aluno("cauan", "2420519", 8.5);
         TurmaView view =  new TurmaView();
-        t.add(leo);
-        t.add(and);
+        t.add(isadora);
+        t.add(lara);
+        t.add(cauan);
         view.imprimeDados(t);
         view.mostraDados(t);
     }
