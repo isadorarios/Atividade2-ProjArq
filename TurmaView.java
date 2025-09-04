@@ -9,7 +9,6 @@ public class TurmaView {
             System.out.println("Nome: " + aluno.getNome());
             System.out.println("Matrícula: " + aluno.getMatricula());
             System.out.println("Nota: " + aluno.getNota());
-            System.out.println("----------------------");
         }
     }
 }
