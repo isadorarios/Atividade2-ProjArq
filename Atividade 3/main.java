@@ -1,22 +1,13 @@
-package Atividade2;
+package Atividade4;
 
 public class main {
     public static void main(String[] args) {
-        Funcionario contrato = new Contrato(100f, 30f);
-        Funcionario estagio = new Estagio(300f, 200f);
-        Funcionario clt = new Clt(1000f, 200f, 60f);
+        Forma retangulo = new Retangulo(10, 5);
+        Forma quadrado = new Quadrado(7);
+        Forma circulo = new Circulo(4.5);
 
-        Folha folha1 = new Folha();
-        folha1.calcular(contrato);
-        System.out.println("Salário do contratado: " + folha1.getSaldo());
-
-        Folha folha2 = new Folha();
-        folha2.calcular(estagio);
-        System.out.println("Bolsa do estagiário: " + folha2.getSaldo());
-
-        Folha folha3 = new Folha();
-        folha3.calcular(clt);
-        System.out.println("Salário do clt: " + folha3.getSaldo());
+        System.out.println("Área do retângulo: " + retangulo.calculaArea());
+        System.out.println("Área do quadrado: " + quadrado.calculaArea());
+        System.out.println("Área do círculo: " + circulo.calculaArea());
     }
 }
-
