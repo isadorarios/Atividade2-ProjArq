@@ -2,9 +2,9 @@ package Atividade2;
 
 public class main {
     public static void main(String[] args) {
-        Funcionario contrato = new Contrato(2000f, 500f);
-        Funcionario estagio = new Estagio(1000f, 200f);
-        Funcionario clt = new Clt(3000f, 800f, 600f);
+        Funcionario contrato = new Contrato(300f, 50f);
+        Funcionario estagio = new Estagio(100f, 700f);
+        Funcionario clt = new Clt(300f, 80f, 300f);
 
         Folha folha1 = new Folha();
         folha1.calcular(contrato);
@@ -16,6 +16,7 @@ public class main {
 
         Folha folha3 = new Folha();
         folha3.calcular(clt);
-        System.out.println("Salário do CLT: " + folha3.getSaldo());
+        System.out.println("Salário do clt: " + folha3.getSaldo());
     }
 }
+
