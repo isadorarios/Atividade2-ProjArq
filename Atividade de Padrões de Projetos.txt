@@ -1,0 +1,132 @@
+Atividade de Padrões de Projetos Criacionais
+
+Builder
+
+Contexto:
+Você está desenvolvendo um sistema de pedidos online para uma pizzaria. Cada pizza pode ter tamanho, tipo de massa, molho e recheios opcionais.
+
+Problema:
+Se o cliente tiver que passar tudo no construtor (new Pizza("Grande", "Fina", "Tomate", "Mussarela, Calabresa, Azeitona")), o código fica ilegível e difícil de dar manutenção, principalmente quando há muitas combinações.
+
+Solução:
+Usar Builder para montar a pizza passo a passo, tornando o processo mais organizado e claro.
+
+
+Exemplo:
+class Pizza {
+    private String tamanho;
+    private String massa;
+    private String molho;
+    private String recheios;
+
+    public Pizza(String tamanho, String massa, String molho, String recheios) {
+        this.tamanho = tamanho;
+        this.massa = massa;
+        this.molho = molho;
+        this.recheios = recheios;
+    }
+
+    @Override
+    public String toString() {
+        return "Pizza [Tamanho=" + tamanho + ", Massa=" + massa + 
+               ", Molho=" + molho + ", Recheios=" + recheios + "]";
+    }
+}
+
+class PizzaBuilder {
+    private String tamanho;
+    private String massa;
+    private String molho;
+    private String recheios;
+
+    public PizzaBuilder setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+        return this;
+    }
+
+    public PizzaBuilder setMassa(String massa) {
+        this.massa = massa;
+        return this;
+    }
+
+    public PizzaBuilder setMolho(String molho) {
+        this.molho = molho;
+        return this;
+    }
+
+    public PizzaBuilder setRecheios(String recheios) {
+        this.recheios = recheios;
+        return this;
+    }
+
+    public Pizza build() {
+        return new Pizza(tamanho, massa, molho, recheios);
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Pizza pizza = new PizzaBuilder()
+                        .setTamanho("Grande")
+                        .setMassa("Fina")
+                        .setMolho("Tomate")
+                        .setRecheios("Mussarela, Calabresa, Azeitona")
+                        .build();
+
+        System.out.println(pizza);
+    }
+}
+
+
+Prototype
+
+Contexto:
+Um editor gráfico permite criar formas geométricas (círculos, quadrados, etc.). Muitas vezes é preciso criar várias formas iguais ou semelhantes.
+
+Problema:
+Criar cada forma do zero (com posição, cor, borda, raio, etc.) consome tempo e gera repetição de código.
+
+Solução:
+Usar Prototype para clonar uma forma existente e depois modificar apenas o necessário.
+
+
+Exemplo:
+interface Forma extends Cloneable {
+    Forma clonar();
+    void desenhar();
+}
+
+class Circulo implements Forma {
+    private int raio;
+    private String cor;
+
+    public Circulo(int raio, String cor) {
+        this.raio = raio;
+        this.cor = cor;
+    }
+
+    @Override
+    public Forma clonar() {
+        return new Circulo(this.raio, this.cor);
+    }
+
+    @Override
+    public void desenhar() {
+        System.out.println("Círculo de raio " + raio + " e cor " + cor);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circulo original = new Circulo(10, "Azul");
+        Circulo copia = (Circulo) original.clonar();
+
+        original.desenhar();
+        copia.desenhar();
+    }
+}
+
+
+
+
